@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 
-const API = "http://localhost:5000/api/tasks";
+const API =
+  process.env.NODE_ENV === "production"
+    ? "https://todo-backend.onrender.com/api/tasks"
+    : "http://localhost:5000/api/tasks";
 
 function App() {
   // состояние задач
